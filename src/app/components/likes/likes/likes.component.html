@@ -1,0 +1,10 @@
+ <section class="container-fluid w-100" style="background-color: aliceblue;">  
+    <div (click)="action({to:'like',method:'post', action:'add'})"
+        style="cursor: pointer;"
+    >
+        <h4 class="p-2 w-100 d-flex justify-content-around">
+            <span class="pr-2">Likes: </span>
+            <span>{{(likes$ | async)?.length}}</span>
+        </h4>
+    </div>
+ </section>

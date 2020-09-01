@@ -1,0 +1,27 @@
+<div *ngIf="row?.text && row?.image" style="height:fit-content;">
+    <div class="p-2 w-100 float-left" *ngIf="row?.image" 
+        style="overflow: hidden; max-width: 30vh;">
+        <img src="{{row?.image}}" alt="" class="p-2" style="width: 100%;object-fit: cover; min-height: 10vh;">
+    </div>
+    <div class="w-100 h-auto" *ngIf="row?.text">
+        <p class="p-4 pt-2" style="font-size: 1.5rem; width: 100%;">
+            {{row?.text}}
+        </p>
+    </div>
+</div>
+<div *ngIf="(!row?.image || !row?.text)">
+    <div *ngIf="row?.text">
+        <p class="p-2 w-100" style="font-size: 1.5rem; text-align: center;">
+            {{row?.text}}
+        </p>
+    </div>
+    <div class="div-image p-2 d-flex flex-column align-items-center"
+        style="overflow: hidden; max-height: 30vh; max-width: 30vw; margin: auto;" 
+        (mouseenter)="hover=false"
+        (mouseleave)="hover=true" 
+        [ngClass]="{'half':hover==false}" *ngIf="row?.image">
+        <img src="{{row?.image}}" alt="" class="p-2"
+            id="img"
+            [ngClass]="{'half':hover==true}">
+    </div>
+</div>

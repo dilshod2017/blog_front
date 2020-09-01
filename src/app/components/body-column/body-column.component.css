@@ -1,0 +1,15 @@
+.half {
+    transform: scale(2, 3);
+    transition: all 1s;
+}
+
+#img {
+    object-fit: cover;
+    height: inherit;
+    max-width: 30%;
+}
+
+.div-image,
+#img {
+    transform: scale(1, 1);
+}

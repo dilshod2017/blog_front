@@ -1,0 +1,26 @@
+<section class="container-fluid p-2 w-100">
+    <div class="w-100 p-3"> 
+        <div *ngFor="let comment of (comments$ | async)" 
+            class="container-fluid p-2 d-flex flex-column">
+            <div class="p-2 w-100 d-flex justify-content-end" style="border: 1px solid orange;">
+               <div class="w-50 d-flex justify-content-around">
+                    <app-likes [comment_id]="comment?._comment_id"></app-likes>
+                    <div class="p-1">
+                        <button class="btn btn-sm btn-success">Edit</button>
+                    </div>
+                    <div class="p-1">
+                        <button (click)="action({to:'comment', action:'delete',data:comment})"  class="btn btn-sm btn-danger">Delete</button>
+                    </div>
+               </div>
+            </div>
+            <div class="p-2 text-center d-flex flex-column align-items-center">
+                <p class="w-100" style="font-size: 1.6rem;">
+                    {{comment?.comment_text}}
+                </p>
+                <h5>
+                    {{comment?.comment_timeStamp | date:'short'}}
+                </h5>
+            </div>
+        </div>
+    </div>
+</section>

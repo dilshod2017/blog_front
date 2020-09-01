@@ -1,0 +1,39 @@
+<section class="container-fluid p-1 d-flex flex-column align-items-center" >
+    <div class="p-2 mx-auto d-flex flex-column align-items-center" 
+         style="border: 1px solid gray; width: 96vw;" >
+        <header class="jumbotron-fluid header p-2" style="min-height: 20vh;border:2px solid lightgray">
+            <p>posts works!</p>
+            <h1>{{(postList$ | async)?.length}}</h1>
+        </header>
+        <main class="mt-2 d-flex w-100 flex-column align-items-center" style="border: 1px solid orange">
+            <div class="p-3 w-100" style="background-color: aquamarine;">
+                <div class="w-100 d-flex flex-column align-items-center m-1"
+                    style="border: 1px solid gray"
+                     *ngFor="let post of (postList$ | async)">
+                    <div class="p-2 w-100 d-flex justify-content-around">
+                       <div class="">
+                            <h4>{{post?.post_title.substring(0, 10)}}</h4>
+                       </div>
+                        <div class="w-25 d-flex justify-content-around">
+                            <span class="d-flex align-items-center justify-content-sm-around">
+                                <h4>Likes</h4> 
+                                <h4>::{{post?.likes}}</h4>
+                            </span>
+                            <span class="d-flex align-items-center justify-content-sm-around">
+                                <h4>Comments</h4>
+                                <h4>::{{post?.comments}}</h4>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-2" 
+                        style="cursor: pointer; border: 1px solid darkorange"
+                        (click)="action({nav:true, to:'post', data:post?._post_id})">
+                        <div class="m-1">
+                            <p class="m-1">{{post?.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</section>
